@@ -1,44 +1,78 @@
+require 'pry'
+
+
 def welcome
-  # code #welcome here
+  puts "Welcome to the Blackjack Table"
 end
 
 def deal_card
-  # code #deal_card here
-end
+  rand(1...11)
+    end
 
-def display_card_total
-  # code #display_card_total here
-end
+card_total = deal_card 
+
+def display_card_total(card_total)
+  
+  card_total == deal_card 
+  puts "Your cards add up to #{card_total}"
+  
+  end
 
 def prompt_user
-  # code #prompt_user here
-end
+  puts "Type 'h' to hit or 's' to stay"
+  end
 
 def get_user_input
-  # code #get_user_input here
+  gets.chomp
 end
 
-def end_game
-  # code #end_game here
-end
+def end_game(card_total)
+  card_total >= 21
+  puts "Sorry, you hit #{card_total}. Thanks for playing!"
+
+end 
+
 
 def initial_round
-  # code #initial_round here
-end
+  2.times do
+    deal_card
+     end
+  card_total = deal_card + deal_card 
+  display_card_total(card_total)
+  return card_total
+    end
 
-def hit?
-  # code hit? here
-end
+ 
+def hit?(num)
+  card_total = num + deal_card  
+  num >= 0 
+  if num < 21 
+    prompt_user
+    get_user_input
+   end
+    if get_user_input = "h"
+      deal_card
+      card_total = num + deal_card
+      return card_total
+    elsif get_user_input = "s"
+     num + 0
+     return num
+     else 
+     invalid_command
+   end 
+     if num > 21
+     end_game
+  end
 
 def invalid_command
-  # code invalid_command here
+  puts "Please enter a valid command code" 
 end
 
-#####################################################
-# get every test to pass before coding runner below #
-#####################################################
 
 def runner
-  # code runner here
+  welcome
+  initial_round
+  hit?(4)
+
 end
     
